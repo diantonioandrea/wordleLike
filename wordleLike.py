@@ -27,6 +27,7 @@ for w in words:
     elif len(newWord) == 9:
         nine_letters.append(newWord)
 
+print("v0.1.0-pre")
 print("wordleLike, a game inspired by wordle by Josh Wardle.")
 print("Developed by Andrea Di Antonio.\n")
 
