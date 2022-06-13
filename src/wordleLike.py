@@ -1,7 +1,9 @@
 # wordleLike, a game inspired by wordle by Josh Wardle.
 
-from wlfunctions import getGuess, getInteger, wordGuess
+from wlFunctions import getGuess, getInteger, wordGuess
 import random, sys, colorama
+
+colorama.init() # load colours
 
 # loading letters
 
@@ -27,7 +29,7 @@ for w in words:
     elif len(newWord) == 9:
         nine_letters.append(newWord)
 
-print("v0.1.0-pre")
+print("v1.0.0")
 print("wordleLike, a game inspired by wordle by Josh Wardle.")
 print("Developed by Andrea Di Antonio.\n")
 
@@ -40,10 +42,11 @@ print("Difficulty selection.")
 print("\t0 - Easy")
 print("\t1 - Normal")
 print("\t2 - Hard")
-print("\t3 - Hard AF\n")
+print("\t3 - Hard AF")
 
 try:
-    difficulty = getInteger("Select difficulty [0, 3]: ", range(4))
+    difficulty = getInteger("\nSelect difficulty [0, 3]: ", range(4))
+    
 except(KeyboardInterrupt, EOFError):
     print("\n\nExited.")
     sys.exit(0)
@@ -53,14 +56,12 @@ if difficulty == 3:
 else:
     print()
 
-colorama.init() # load colours
-
 while True:
     print("Starting new game.")
-    print("Exit with Ctrl+C or EOF\n")
+    print("Exit with Ctrl+C or EOF")
 
     try: # game interface
-        length = getInteger("Select word length {5, 7, 9}: ", range(5, 10, 2))
+        length = getInteger("\nSelect word length {5, 7, 9}: ", range(5, 10, 2))
         print("\nPlaying with " + str(length) + " letters words on difficulty " + str(difficulty) + ".")
 
         wordList = five_letters
@@ -102,9 +103,9 @@ while True:
                     availableLetters += l + " "
 
                 if difficulty == 0:
-                    print(str(len(letters)) + " letters available: " + str(availableLetters) + "\n")
+                    print(str(len(letters)) + " letters available: " + str(availableLetters))
                 else:
-                    print("Letters available: " + str(availableLetters) + "\n")
+                    print("Letters available: " + str(availableLetters))
 
             guess = getGuess(length, wordList, difficulty)
             guessResult, toBeExcluded, newResult = wordGuess(word, guess, difficulty, letters)

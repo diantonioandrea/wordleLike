@@ -13,12 +13,13 @@ def getInteger(request: str, rng: list) -> int:
 
             if integer in rng:
                 return integer
-        except(ValueError):
+                
+        except:
             continue
 
 def getGuess(length: int, wordList: list, diff: int) -> str:
     while True:
-        guess = str(input("Make a guess: "))
+        guess = str(input("\nMake a guess: "))
 
         if guess not in wordList and diff != 0:
             print("Word not in word-list.\n")

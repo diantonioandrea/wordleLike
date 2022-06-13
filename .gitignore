@@ -1,8 +1,10 @@
 # Folders
 
 __pycache__
+src/__pycache
 build
 dist
+wordlePack
 
 # Files
 
